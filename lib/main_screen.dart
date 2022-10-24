@@ -92,7 +92,6 @@ if(message!=null) {
             onTap: onTap,
             items: [
               BottomNavigationBarItem(icon: Icon(Icons.post_add),label: 'Posts'),
-              BottomNavigationBarItem(icon: Icon(Icons.post_add),label: 'Favs'),
               BottomNavigationBarItem(icon: Icon(Icons.supervised_user_circle_sharp),label: 'Users'),
             ],
           ),
