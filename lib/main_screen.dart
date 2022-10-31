@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation_test/router.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
-import 'features/posts/presentation/pages/post_screen.dart';
-import 'features/users/presentation/pages/user_screen.dart';
+import 'features/posts/post_screen.dart';
+import 'features/users/user_screen.dart';
+import 'generated/locale_keys.g.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -36,6 +38,8 @@ class _MainScreenState extends State<MainScreen> {
   Future<bool> _onWillPop() async {
     return false;
   }
+
+  String deviceTokenToSendPushNotification='';
 
   @override
   void initState() {
@@ -74,15 +78,18 @@ if(message!=null) {
       },
     );
 
+  }
 
-
-
-
-
+  Future<void> getDeviceTokenToSendNotification() async {
+    final FirebaseMessaging _fcm = FirebaseMessaging.instance;
+    final token = await _fcm.getToken();
+    deviceTokenToSendPushNotification = token.toString();
+    print("Token Value $deviceTokenToSendPushNotification");
   }
 
   @override
   Widget build(BuildContext context) {
+    getDeviceTokenToSendNotification();
      return WillPopScope(
         onWillPop: _onWillPop,
         child: Scaffold(
@@ -91,8 +98,8 @@ if(message!=null) {
             currentIndex: currentIndex,
             onTap: onTap,
             items: [
-              BottomNavigationBarItem(icon: Icon(Icons.post_add),label: 'Posts'),
-              BottomNavigationBarItem(icon: Icon(Icons.supervised_user_circle_sharp),label: 'Users'),
+              BottomNavigationBarItem(icon: Icon(Icons.post_add),label: LocaleKeys.Posts.tr()),
+              BottomNavigationBarItem(icon: Icon(Icons.supervised_user_circle_sharp),label: LocaleKeys.Users.tr()),
             ],
           ),
         ),
