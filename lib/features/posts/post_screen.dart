@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:navigation_test/features/posts/presentation/pages/post_detail_screen.dart';
-import 'package:navigation_test/features/posts/presentation/pages/post_home_screen.dart';
-import 'package:navigation_test/features/posts/presentation/pages/post_list_screen.dart';
+import 'package:navigation_test/features/posts/post_detail_screen.dart';
+import 'package:navigation_test/features/posts/post_home_screen.dart';
+import 'package:navigation_test/features/posts/post_list_screen.dart';
 import 'package:navigation_test/router.dart';
 
 

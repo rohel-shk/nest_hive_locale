@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:navigation_test/features/users/presentation/pages/user_screen.dart';
+import 'package:navigation_test/features/users/user_screen.dart';
+import 'package:navigation_test/generated/locale_keys.g.dart';
 
 import 'package:navigation_test/router.dart';
 
@@ -15,7 +17,8 @@ class _UserHomeState extends State<UserHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User Home'),
+        title: Text(LocaleKeys.User_home.tr()),
+
       ),
       body: Container(
         child: Center(
@@ -23,7 +26,7 @@ class _UserHomeState extends State<UserHome> {
               onTap: (){
                 userNav.currentState?.pushNamed(UserScreenNav.userListPath);
               },
-              child: Text('this is user home')),
+              child: Text('Click to view users')),
         ),
       ),
     );

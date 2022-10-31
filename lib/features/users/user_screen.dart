@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:navigation_test/features/users/presentation/pages/user_home_screen.dart';
-import 'package:navigation_test/features/users/presentation/pages/user_detail_screen.dart';
-import 'package:navigation_test/features/users/presentation/pages/user_list_screen.dart';
+import 'package:navigation_test/features/users/update_user_screen.dart';
+import 'package:navigation_test/features/users/user_home_screen.dart';
+import 'package:navigation_test/features/users/add_user_screen.dart';
+import 'package:navigation_test/features/users/user_list_screen.dart';
 import 'package:navigation_test/router.dart';
 
 
 class UserScreenNav{
   static const userListPath='/userScreen/userListScreen';
-  static const userDetailPath='/userScreen/userDetailScreen';
+  static const addUserPath='/userScreen/addUserScreen';
+  static const updateUserPath='/userScreen/updateUserScreen';
+
 }
 
 class UserScreen extends StatefulWidget {
@@ -32,8 +35,15 @@ class _UserScreenState extends State<UserScreen> {
           case UserScreenNav.userListPath:
             page=UserListScreen();
             break;
-          case UserScreenNav.userDetailPath:
-            page=UserDetailScreen();
+          case UserScreenNav.addUserPath:
+            page=AddUserScreen();
+            break;
+          case UserScreenNav.updateUserPath:
+          final args=settings.arguments as Map;
+            page=UpdateUserScreen(
+              name: args['name'],
+              index: args['index'],
+            );
             break;
           default:
             page=Container();

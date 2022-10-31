@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:navigation_test/main_screen.dart';
 
-import 'features/posts/presentation/pages/post_screen.dart';
-import 'features/users/presentation/pages/user_screen.dart';
+import 'features/posts/post_screen.dart';
+import 'features/users/user_screen.dart';
 
 GlobalKey<NavigatorState> mainNav=GlobalKey<NavigatorState>();
 GlobalKey<NavigatorState> postNav=GlobalKey<NavigatorState>();
