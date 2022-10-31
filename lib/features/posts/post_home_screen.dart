@@ -18,27 +18,39 @@ class _PostHomeState extends State<PostHome> {
       appBar: AppBar(
         title: Text(LocaleKeys.Post_home.tr()),
         actions: [
-      Row(
-      children: [
-      InkWell(onTap: () async{
-    await context.setLocale(Locale('en'));
-    },child: Image.asset('assets/images/en.png',height: 30,width: 30,)),
-    SizedBox(width: 10),
-    InkWell(onTap: () async{
-    await context.setLocale(Locale('ne'));
-    },child: Image.asset('assets/images/np.png',height: 30,width: 30,)),
-    SizedBox(width: 10)
-    ],
-    )
+          Row(
+            children: [
+              InkWell(
+                  onTap: () async {
+                    await context.setLocale(Locale('en'));
+                  },
+                  child: Image.asset(
+                    'assets/images/en.png',
+                    height: 30,
+                    width: 30,
+                  )),
+              SizedBox(width: 10),
+              InkWell(
+                  onTap: () async {
+                    await context.setLocale(Locale('ne'));
+                  },
+                  child: Image.asset(
+                    'assets/images/np.png',
+                    height: 30,
+                    width: 30,
+                  )),
+              SizedBox(width: 10)
+            ],
+          )
         ],
       ),
-      body:
-        Center(
-          child: InkWell(
-              onTap: (){postNav.currentState?.pushNamed(PostScreenNav.postListPath);},
-              child: Text('This is post home')),
-        ),
-
+      body: Center(
+        child: InkWell(
+            onTap: () {
+              postNav.currentState?.pushNamed(PostScreenNav.postListPath);
+            },
+            child: Text('This is post home. Click')),
+      ),
     );
   }
 }
